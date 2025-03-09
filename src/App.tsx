@@ -12,7 +12,7 @@ import { AnimatePresence } from "framer-motion";
 import { NavigationProvider, useNavigation } from "./NavigationContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
+import Route3 from "./pages/route3.tsx";
 
 const Home = () => {
   const { isBack, setIsBack } = useNavigation();
@@ -31,8 +31,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => { setIsBack(false); }, 0.5 );
-    
+    setTimeout(() => {
+      setIsBack(false);
+    }, 0.5);
   });
 
   return (
@@ -59,6 +60,9 @@ const Home = () => {
             </li>
             <li className="list-group-item d-flex justify-content-between align-items-center">
               <Link to={"/route2"}>Page 2</Link>
+            </li>
+            <li className="list-group-item d-flex justify-content-between align-items-center">
+              <Link to={"/route3"}>Page 3</Link>
             </li>
           </ul>
         </div>
@@ -178,28 +182,28 @@ const Route2 = () => {
       variants={pageVariants}
       className="page"
     >
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <button
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <span className="icon-back material-symbols-outlined">
-            arrow_back
-          </span>
-        </button>
-      </div>
-    </nav>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <span className="icon-back material-symbols-outlined">
+              arrow_back
+            </span>
+          </button>
+        </div>
+      </nav>
       <div className="container">
         <div className="col">
           <h3>Caramels shortbread caramels</h3>
           <p>
-          Hello, hello ...
-            Sesame snaps candy cake oat cake shortbread soufflé. Caramels
-            shortbread caramels cotton candy biscuit oat cake. Toffee sugar plum
-            wafer cupcake oat cake chupa chups sugar plum. Caramels gingerbread
-            cupcake marzipan toffee wafer chocolate ice cream bonbon.
+            Hello, hello ... Sesame snaps candy cake oat cake shortbread
+            soufflé. Caramels shortbread caramels cotton candy biscuit oat cake.
+            Toffee sugar plum wafer cupcake oat cake chupa chups sugar plum.
+            Caramels gingerbread cupcake marzipan toffee wafer chocolate ice
+            cream bonbon.
           </p>
           <ReactPlayer
             url="/videos/beta.mp4"
@@ -241,6 +245,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/route1" element={<Route1 />} />
         <Route path="/route2" element={<Route2 />} />
+        <Route path="/route3" element={<Route3 />} />
       </Routes>
     </AnimatePresence>
   );
