@@ -12,7 +12,7 @@ import { AnimatePresence } from "framer-motion";
 import { NavigationProvider, useNavigation } from "./NavigationContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import Route3 from "./pages/route3.tsx";
+import ThreeDModels from "./pages/ThreeDModels.tsx";
 
 const Home = () => {
   const { isBack, setIsBack } = useNavigation();
@@ -49,21 +49,18 @@ const Home = () => {
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
               <Link to={"/"}>
-                <b>DEMO APP</b>
+                <b>360 Viewer App</b>
               </Link>
             </div>
           </nav>
 
           <ul className="list-group">
             <li className="list-group-item d-flex justify-content-between align-items-center">
-              <Link to={"/route1"}>Page 1</Link>
+              <Link to={"/3D-models"}>Using 3D Models</Link>
             </li>
             <li className="list-group-item d-flex justify-content-between align-items-center">
-              <Link to={"/route2"}>Page 2</Link>
-            </li>
-            <li className="list-group-item d-flex justify-content-between align-items-center">
-              <Link to={"/route3"}>Page 3</Link>
-            </li>
+              <Link to={"/videos"}>Using videos</Link>
+            </li> 
           </ul>
         </div>
       </div>
@@ -243,9 +240,9 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="sync">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/route1" element={<Route1 />} />
+        <Route path="/videos" element={<Route1 />} />
         <Route path="/route2" element={<Route2 />} />
-        <Route path="/route3" element={<Route3 />} />
+        <Route path="/3D-models" element={<ThreeDModels />} />
       </Routes>
     </AnimatePresence>
   );
